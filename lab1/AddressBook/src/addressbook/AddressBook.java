@@ -22,6 +22,7 @@ public class AddressBook extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("address_book.fxml"), bundle);
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
         stage.setMinWidth(500);
+        stage.setMinHeight(200);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.getIcons().add(new Image("addressbook/resources/frameIcon32.gif"));

@@ -40,16 +40,13 @@ public class AddressBookController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         initPresenter();
         setContactListener();
-        Arrays.stream(getAllTextFields()).forEach(textField -> addTextFieldListener(textField));
+        Arrays.stream(getAllTextFields()).forEach(this::addTextFieldListener);
     }
 
     private void setContactListener(){
-        contactList.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                presenter.contactsListChanged();
-            }
-        });
+        contactList.getSelectionModel()
+                .selectedIndexProperty()
+                .addListener((observable, oldValue, newValue) -> presenter.contactsListChanged());
     }
 
     private TextField[] getAllTextFields(){
@@ -104,6 +101,12 @@ public class AddressBookController implements Initializable {
     protected void newButtonActionPerformed(ActionEvent event){
         presenter.newContact();
     }
+
+    @FXML
+    protected void removeCurrentButtonActionPerformed(ActionEvent event){
+        presenter.removeCurrentContact();
+    }
+
 }
 
 class TextFieldListener implements ChangeListener<Boolean>{
@@ -126,5 +129,3 @@ class TextFieldListener implements ChangeListener<Boolean>{
         }
     }
 }
-
-

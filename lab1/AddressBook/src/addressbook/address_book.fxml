@@ -11,6 +11,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
@@ -33,7 +34,7 @@
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="%deleteContactMenuItem.text">
+                  <MenuItem mnemonicParsing="false" onAction="#removeCurrentButtonActionPerformed" text="%deleteContactMenuItem.text">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,8 +64,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <tooltip>
+                  <Tooltip text="%newContactTooltip.text" />
+               </tooltip>
             </Button>
-            <Button fx:id="main_toolbar_button_delete" layoutX="10.0" layoutY="10.0" mnemonicParsing="false">
+            <Button fx:id="main_toolbar_button_delete" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#removeCurrentButtonActionPerformed">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,6 +76,9 @@
                      </image>
                   </ImageView>
                </graphic>
+               <tooltip>
+                  <Tooltip text="%deleteContactToolip.text" />
+               </tooltip>
             </Button>
         </items>
       </ToolBar>

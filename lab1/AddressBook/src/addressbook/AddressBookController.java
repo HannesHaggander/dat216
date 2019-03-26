@@ -3,6 +3,7 @@ package addressbook;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -35,9 +36,35 @@ public class AddressBookController implements Initializable {
             postcodeTextField,
             cityTextField;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        initPresenter();
+        setContactListener();
+        Arrays.stream(getAllTextFields()).forEach(textField -> addTextFieldListener(textField));
+    }
+
+    private void setContactListener(){
+        contactList.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                presenter.contactsListChanged();
+            }
+        });
+    }
+
+    private TextField[] getAllTextFields(){
+        return new TextField[]{
+                fnameTextField,
+                lnameTextField,
+                phoneTextField,
+                emailTextField,
+                addressTextField,
+                postcodeTextField,
+                cityTextField
+        };
+    }
+
+    private void initPresenter(){
         presenter = new Presenter(contactList,
                 fnameTextField,
                 lnameTextField,
@@ -48,13 +75,11 @@ public class AddressBookController implements Initializable {
                 cityTextField);
 
         presenter.init();
+    }
 
-        contactList.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                presenter.contactsListChanged();
-            }
-        });
+
+    private void addTextFieldListener(TextField tf){
+        tf.focusedProperty().addListener(new TextFieldListener(tf, presenter));
     }
 
     @FXML
@@ -80,3 +105,26 @@ public class AddressBookController implements Initializable {
         presenter.newContact();
     }
 }
+
+class TextFieldListener implements ChangeListener<Boolean>{
+
+    private TextField textField;
+    private Presenter presenter;
+
+    public TextFieldListener(TextField textField, Presenter presenter){
+        this.textField = textField;
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+        if(newValue){
+            presenter.textFieldFocusGained(textField);
+        }
+        else {
+            presenter.textFieldFocusLost(textField);
+        }
+    }
+}
+
+

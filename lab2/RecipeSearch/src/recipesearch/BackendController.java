@@ -1,7 +1,6 @@
 package recipesearch;
 
 import Contracts.IBackendController;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -17,9 +16,17 @@ public class BackendController implements IBackendController<BackendController> 
     private Integer maxPrice, maxTime;
     private static BackendController instance;
 
+    public enum recipeDifficulty {
+        easy,
+        medum,
+        hard,
+        all
+    }
+
     public BackendController(){ ReadFile(); }
 
     public static BackendController getInstance(){
+        if(instance == null){ instance = new BackendController(); }
         return instance;
     }
 
@@ -27,10 +34,10 @@ public class BackendController implements IBackendController<BackendController> 
     public List<Recipe> getAnyMatchRecipe() {
         return recipes.stream()
             .filter(x -> nonEmptyOrNull(cuisine) && x.getCuisine().equals(cuisine)
-                    || nonEmptyOrNull(mainIngredient) && x.getMainIngredient().equals(mainIngredient)
-                    || nonEmptyOrNull(difficulty) && x.getDifficulty().equals(difficulty)
-                    || nonNull(maxPrice) && x.getPrice() <= maxPrice
-                    || nonNull(maxTime) && x.getTime() <= maxTime)
+                    || nonEmptyOrNull(mainIngredient) && x.getMainIngredient().equals(mainIngredient) //check if main ingredient is ok
+                    || nonEmptyOrNull(difficulty) && difficulty.equals(x.getDifficulty()) || difficulty.equals("all")
+                    || nonNull(maxPrice) && x.getPrice() <= maxPrice //check for right price
+                    || nonNull(maxTime) && x.getTime() <= maxTime) //check for right time
             .collect(Collectors.toList());
     }
 
@@ -63,8 +70,8 @@ public class BackendController implements IBackendController<BackendController> 
     }
 
     @Override
-    public BackendController setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public BackendController setDifficulty(recipeDifficulty difficulty) {
+        this.difficulty = difficulty.toString();
         return this;
     }
 

@@ -1,5 +1,6 @@
 package Contracts;
 
+import recipesearch.BackendController;
 import recipesearch.RecipeSearch;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -10,7 +11,7 @@ public interface IBackendController<T> {
     T clearFilter();
     T setCuisine(String cuisine);
     T setMainIngredient(String mainIngredient);
-    T setDifficulty(String difficulty);
+    T setDifficulty(BackendController.recipeDifficulty difficulty);
     T setMaxPrice(int maxPrice);
     T setMaxTime(int maxTime);
 

@@ -15,9 +15,12 @@ import java.util.stream.Collectors;
 public class BackendController implements IBackendController<BackendController> {
     private String cuisine, mainIngredient, difficulty;
     private Integer maxPrice, maxTime;
+    private static BackendController instance;
 
-    public BackendController(){
-        ReadFile();
+    public BackendController(){ ReadFile(); }
+
+    public static BackendController getInstance(){
+        return instance;
     }
 
     @Override

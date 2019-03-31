@@ -80,7 +80,8 @@ public class RecipeSearchController implements Initializable {
     }
 
     private void setupMainIngredientComboBox(){
-        mainIngredientSetting.getItems().add(bundle.getString("showAll.text"));
+        final String defSelection = bundle.getString("showAll.text");
+        mainIngredientSetting.getItems().add(defSelection);
         mainIngredientSetting.getItems().addAll(BackendController.getInstance()
                 .getAllRecipes()
                 .stream()
@@ -92,14 +93,15 @@ public class RecipeSearchController implements Initializable {
         mainIngredientSetting.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
-                    BackendController.getInstance().setMainIngredient(newValue.toString());
+                    BackendController.getInstance().setMainIngredient(newValue.equals(defSelection) ? "" : newValue.toString());
                     updateRecipeList();
                     System.out.println("Set main ingredient to: " + newValue);
                 });
     }
 
     private void setupCuisineComboBox(){
-        foodTypeSetting.getItems().add(bundle.getString("showAll.text"));
+        final String defSelection = bundle.getString("showAll.text");
+        foodTypeSetting.getItems().add(defSelection);
         foodTypeSetting.getItems()
                 .addAll(BackendController.getInstance()
                         .getAllRecipes()
@@ -111,7 +113,7 @@ public class RecipeSearchController implements Initializable {
         foodTypeSetting.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
-                    BackendController.getInstance().setCuisine(newValue.toString());
+                    BackendController.getInstance().setCuisine(newValue.equals(defSelection) ? "" : newValue.toString());
                     updateRecipeList();
                     System.out.println("Set cuisine to: " + newValue);
                 });
@@ -136,5 +138,6 @@ public class RecipeSearchController implements Initializable {
                         .stream()
                         .map(x -> new RecipeListItem(x, this))
                         .collect(Collectors.toList()));
+        System.out.println("Displaying " + list.size() + " items");
     }
 }

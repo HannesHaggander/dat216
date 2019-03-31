@@ -4,7 +4,6 @@ import Contracts.IBackendController;
 import javafx.fxml.FXML;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
-import se.chalmers.ait.dat215.lab2.RecipeComparator;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -12,11 +11,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class BackendController implements IBackendController<BackendController> {
-    private String cuisine, mainIngredient, difficulty = "all";
+    private String cuisine, mainIngredient, difficulty;
     private Integer maxPrice, maxTime;
     private static BackendController instance;
 
@@ -37,17 +35,17 @@ public class BackendController implements IBackendController<BackendController> 
     @Override
     public List<Recipe> getAnyMatchRecipe() {
         return recipes.stream()
-            .filter(x -> nonEmptyOrNull(cuisine) && x.getCuisine().equals(cuisine)
-                    || nonEmptyOrNull(mainIngredient) && x.getMainIngredient().equals(mainIngredient) //check if main ingredient is ok
-                    || nonEmptyOrNull(difficulty) && difficulty.equals(x.getDifficulty()) || difficulty.equals("all")
-                    || nonNull(maxPrice) && x.getPrice() <= maxPrice //check for right price
-                    || nonNull(maxTime) && x.getTime() <= maxTime) //check for right time
-            .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
-            .collect(Collectors.toList());
+                .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
+                .filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
+                .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
+                .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
+                .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
+                .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
+                .collect(Collectors.toList());
     }
 
     public List<Recipe> getAllRecipes(){
-        return recipes.stream().collect(Collectors.toList());
+        return new ArrayList<>(recipes);
     }
 
     @Override
@@ -84,6 +82,7 @@ public class BackendController implements IBackendController<BackendController> 
             case easy: this.difficulty = "Svår"; break;
             case medium: this.difficulty = "Mellan"; break;
             case hard: this.difficulty = "Lätt"; break;
+            default: this.difficulty = "";
         }
         return this;
     }

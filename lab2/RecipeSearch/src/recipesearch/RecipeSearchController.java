@@ -44,11 +44,6 @@ public class RecipeSearchController implements Initializable {
     }
 
     @FXML
-    protected void onFoodSettingChange(ActionEvent event){
-
-    }
-
-    @FXML
     protected void onDiffAllAction(){
         if(difficultyAll.isDisable()){ return; }
 
@@ -166,11 +161,11 @@ public class RecipeSearchController implements Initializable {
                 .collect(Collectors.toList());
         maxTimeSetting.setMin(times.get(0));        //set min time to lowest item time
         maxTimeSetting.setMax(times.get(times.size()-1)); //set max time to highest item time
+        maxTimeSetting.setValue(maxTimeSetting.getMax());
+        maxTimeLabel.setText(String.format("%d %s", maxTimeSetting.valueProperty().getValue().intValue(), bundle.getString("timeMinutes.text")));
         maxTimeSetting.valueProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue == null || newValue.equals(oldValue)){ return; }
             maxTimeLabel.setText(String.format("%d %s", newValue.intValue(), bundle.getString("timeMinutes.text")));
-
-            if(maxTimeSetting.isValueChanging()){ return; }
             BackendController.getInstance().setMaxTime(newValue.intValue());
             updateRecipeList();
         });

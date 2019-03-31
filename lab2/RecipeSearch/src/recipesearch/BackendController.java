@@ -1,7 +1,6 @@
 package recipesearch;
 
 import Contracts.IBackendController;
-import javafx.fxml.FXML;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 

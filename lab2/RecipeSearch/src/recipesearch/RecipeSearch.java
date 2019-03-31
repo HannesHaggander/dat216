@@ -25,8 +25,8 @@ public class RecipeSearch extends Application {
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
-        stage.setMinHeight(250);
-        stage.setMinWidth(300);
+        stage.setMinHeight(550);
+        stage.setMinWidth(450);
         stage.show();
     }
 

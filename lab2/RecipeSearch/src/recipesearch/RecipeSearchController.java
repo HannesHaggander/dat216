@@ -132,6 +132,12 @@ public class RecipeSearchController implements Initializable {
             BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
             updateRecipeList();
         });
+        maxPriceSetting.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if(!newValue) {
+                BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
+                updateRecipeList();
+            }
+        });
     }
 
     private void setToggleGroup(){

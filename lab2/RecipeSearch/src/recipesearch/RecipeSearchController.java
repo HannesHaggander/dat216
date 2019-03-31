@@ -2,9 +2,7 @@ package recipesearch;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,6 +29,8 @@ public class RecipeSearchController implements Initializable {
 
     private ResourceBundle bundle;
     private ToggleGroup difficultyGroup;
+
+    private HashMap<Recipe, RecipeListItem> listItemCache = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -77,7 +77,7 @@ public class RecipeSearchController implements Initializable {
     }
 
     /***
-     * Set main ingredient combo box with ingredients from the backend 
+     * Set main ingredient combo box with ingredients from the backend
      */
     private void setupMainIngredientComboBox(){
         final String defSelection = bundle.getString("showAll.text");
@@ -208,12 +208,18 @@ public class RecipeSearchController implements Initializable {
     private void updateRecipeList(){
         recipeItemFlowPane.getChildren().clear();
         List<Recipe> list = BackendController.getInstance().getAnyMatchRecipe();
+
         recipeItemFlowPane.getChildren()
                 .addAll(BackendController.getInstance()
                         .getAnyMatchRecipe()
                         .stream()
-                        .map(x -> new RecipeListItem(x, this))
+                        .map(this::insertListItem)
                         .collect(Collectors.toList()));
         System.out.println("Displaying " + list.size() + " items");
+    }
+
+    private RecipeListItem insertListItem(Recipe x){
+        if(!listItemCache.containsKey(x)){ listItemCache.put(x, new RecipeListItem(x, this)); }
+        return listItemCache.get(x);
     }
 }

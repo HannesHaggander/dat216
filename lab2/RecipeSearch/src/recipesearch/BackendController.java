@@ -35,13 +35,13 @@ public class BackendController implements IBackendController<BackendController> 
     @Override
     public List<Recipe> getAnyMatchRecipe() {
         return recipes.stream()
-                .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
-                .filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
-                .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
-                .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
-                .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
-                .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
-                .collect(Collectors.toList());
+            .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
+            .filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
+            .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
+            .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
+            .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
+            .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
+            .collect(Collectors.toList());
     }
 
     public List<Recipe> getAllRecipes(){

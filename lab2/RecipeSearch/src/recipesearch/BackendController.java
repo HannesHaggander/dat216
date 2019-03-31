@@ -1,6 +1,7 @@
 package recipesearch;
 
 import Contracts.IBackendController;
+import javafx.fxml.FXML;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeComparator;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class BackendController implements IBackendController<BackendController> {
@@ -42,6 +44,10 @@ public class BackendController implements IBackendController<BackendController> 
                     || nonNull(maxTime) && x.getTime() <= maxTime) //check for right time
             .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
             .collect(Collectors.toList());
+    }
+
+    public List<Recipe> getAllRecipes(){
+        return recipes.stream().collect(Collectors.toList());
     }
 
     @Override

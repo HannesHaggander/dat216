@@ -2,12 +2,17 @@ package recipesearch;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -16,7 +21,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
-
 
 public class RecipeSearchController implements Initializable {
 
@@ -31,9 +35,14 @@ public class RecipeSearchController implements Initializable {
     @FXML
     protected FlowPane recipeItemFlowPane;
 
+    private ResourceBundle bundle;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.bundle = rb;
         setDifficultySelection(difficultyAll, BackendController.recipeDifficulty.all);
+        setupMainIngredientComboBox();
+        setupCuisineComboBox();
         updateRecipeList();
     }
 
@@ -68,6 +77,44 @@ public class RecipeSearchController implements Initializable {
         if(difficultyHard.isDisable()){ return; }
 
         setDifficultySelection(difficultyHard, BackendController.recipeDifficulty.hard);
+    }
+
+    private void setupMainIngredientComboBox(){
+        mainIngredientSetting.getItems().add(bundle.getString("showAll.text"));
+        mainIngredientSetting.getItems().addAll(BackendController.getInstance()
+                .getAllRecipes()
+                .stream()
+                .map(Recipe::getMainIngredient)
+                .distinct()
+                .collect(Collectors.toList()));
+
+        mainIngredientSetting.getSelectionModel().select(0);
+        mainIngredientSetting.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    BackendController.getInstance().setMainIngredient(newValue.toString());
+                    updateRecipeList();
+                    System.out.println("Set main ingredient to: " + newValue);
+                });
+    }
+
+    private void setupCuisineComboBox(){
+        foodTypeSetting.getItems().add(bundle.getString("showAll.text"));
+        foodTypeSetting.getItems()
+                .addAll(BackendController.getInstance()
+                        .getAllRecipes()
+                        .stream()
+                        .map(Recipe::getCuisine)
+                        .distinct()
+                        .collect(Collectors.toList()));
+        foodTypeSetting.getSelectionModel().select(0);
+        foodTypeSetting.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    BackendController.getInstance().setCuisine(newValue.toString());
+                    updateRecipeList();
+                    System.out.println("Set cuisine to: " + newValue);
+                });
     }
 
     private void setDifficultySelection(RadioButton source, BackendController.recipeDifficulty difficulty){

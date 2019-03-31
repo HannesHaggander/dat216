@@ -1,6 +1,8 @@
 
 package recipesearch;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -19,7 +21,7 @@ public class RecipeSearch extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ResourceBundle bundle = java.util.ResourceBundle.getBundle("recipesearch/resources/RecipeSearch");
-        Parent root = FXMLLoader.load(getClass().getResource("recipe_search.fxml"), bundle);
+        Parent root = new FXMLLoader(getClass().getResource("recipe_search.fxml"), bundle).load();
         Scene scene = new Scene(root, 800, 500);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);

@@ -20,7 +20,7 @@ public class BackendController implements IBackendController<BackendController> 
 
     public enum recipeDifficulty {
         easy,
-        medum,
+        medium,
         hard,
         all
     }
@@ -73,8 +73,12 @@ public class BackendController implements IBackendController<BackendController> 
     }
 
     @Override
-    public BackendController setDifficulty(recipeDifficulty difficulty) {
-        this.difficulty = difficulty.toString();
+    public BackendController setDifficulty(final recipeDifficulty difficulty) {
+        switch (difficulty){
+            case easy: this.difficulty = "Svår"; break;
+            case medium: this.difficulty = "Mellan"; break;
+            case hard: this.difficulty = "Lätt"; break;
+        }
         return this;
     }
 

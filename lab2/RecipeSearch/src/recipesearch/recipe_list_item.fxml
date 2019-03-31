@@ -7,7 +7,7 @@
 
 <fx:root prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="recipeItemImage" fitHeight="100.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="recipeItemImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@resources/logo.png" />
          </image>

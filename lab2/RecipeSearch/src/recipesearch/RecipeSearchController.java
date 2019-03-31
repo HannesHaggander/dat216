@@ -3,6 +3,7 @@ package recipesearch;
 import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.layout.FlowPane;
+import se.chalmers.ait.dat215.lab2.Recipe;
 
 
 public class RecipeSearchController implements Initializable {
@@ -31,7 +33,7 @@ public class RecipeSearchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setDifficultySelection(difficultyAll);
+        setDifficultySelection(difficultyAll, BackendController.recipeDifficulty.all);
         updateRecipeList();
     }
 
@@ -44,36 +46,34 @@ public class RecipeSearchController implements Initializable {
     protected void onDiffAllAction(){
         if(difficultyAll.isDisable()){ return; }
 
-        setDifficultySelection(difficultyAll);
-        BackendController.getInstance().setDifficulty(BackendController.recipeDifficulty.all);
+        setDifficultySelection(difficultyAll, BackendController.recipeDifficulty.all);
     }
 
     @FXML
     protected void onDiffEasyAction(){
         if(difficultyEasy.isDisable()){ return; }
 
-        setDifficultySelection(difficultyEasy);
-        BackendController.getInstance().setDifficulty(BackendController.recipeDifficulty.easy);
+        setDifficultySelection(difficultyEasy, BackendController.recipeDifficulty.easy);
     }
 
     @FXML
     protected void onDiffMediumAction(){
         if(difficultyMedium.isDisable()){ return; }
 
-        setDifficultySelection(difficultyMedium);
-        BackendController.getInstance().setDifficulty(BackendController.recipeDifficulty.medum);
+        setDifficultySelection(difficultyMedium, BackendController.recipeDifficulty.medium);
     }
 
     @FXML
     protected void onDiffHardAction(){
         if(difficultyHard.isDisable()){ return; }
 
-        setDifficultySelection(difficultyHard);
-        BackendController.getInstance().setDifficulty(BackendController.recipeDifficulty.hard);
+        setDifficultySelection(difficultyHard, BackendController.recipeDifficulty.hard);
     }
 
-    private void setDifficultySelection(RadioButton source){
+    private void setDifficultySelection(RadioButton source, BackendController.recipeDifficulty difficulty){
         getRadioButtonStream().forEach(x -> x.setSelected(x == source));
+        BackendController.getInstance().setDifficulty(difficulty);
+        updateRecipeList();
     }
 
     private Stream<RadioButton> getRadioButtonStream(){
@@ -82,12 +82,12 @@ public class RecipeSearchController implements Initializable {
 
     private void updateRecipeList(){
         recipeItemFlowPane.getChildren().clear();
+        List<Recipe> list = BackendController.getInstance().getAnyMatchRecipe();
         recipeItemFlowPane.getChildren()
                 .addAll(BackendController.getInstance()
                         .getAnyMatchRecipe()
                         .stream()
                         .map(x -> new RecipeListItem(x, this))
                         .collect(Collectors.toList()));
-        ;
     }
 }

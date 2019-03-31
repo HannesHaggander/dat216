@@ -207,15 +207,12 @@ public class RecipeSearchController implements Initializable {
      */
     private void updateRecipeList(){
         recipeItemFlowPane.getChildren().clear();
-        List<Recipe> list = BackendController.getInstance().getAnyMatchRecipe();
-
         recipeItemFlowPane.getChildren()
                 .addAll(BackendController.getInstance()
                         .getAnyMatchRecipe()
                         .stream()
                         .map(this::insertListItem)
                         .collect(Collectors.toList()));
-        System.out.println("Displaying " + list.size() + " items");
     }
 
     private RecipeListItem insertListItem(Recipe x){

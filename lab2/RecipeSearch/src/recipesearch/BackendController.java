@@ -3,16 +3,18 @@ package recipesearch;
 import Contracts.IBackendController;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
+import se.chalmers.ait.dat215.lab2.RecipeComparator;
 
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class BackendController implements IBackendController<BackendController> {
-    private String cuisine, mainIngredient, difficulty;
+    private String cuisine, mainIngredient, difficulty = "all";
     private Integer maxPrice, maxTime;
     private static BackendController instance;
 
@@ -38,6 +40,7 @@ public class BackendController implements IBackendController<BackendController> 
                     || nonEmptyOrNull(difficulty) && difficulty.equals(x.getDifficulty()) || difficulty.equals("all")
                     || nonNull(maxPrice) && x.getPrice() <= maxPrice //check for right price
                     || nonNull(maxTime) && x.getTime() <= maxTime) //check for right time
+            .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
             .collect(Collectors.toList());
     }
 

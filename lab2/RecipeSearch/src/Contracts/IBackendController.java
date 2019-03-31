@@ -1,7 +1,6 @@
 package Contracts;
 
 import recipesearch.BackendController;
-import recipesearch.RecipeSearch;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
 import java.util.List;

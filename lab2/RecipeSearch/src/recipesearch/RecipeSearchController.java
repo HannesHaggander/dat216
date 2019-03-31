@@ -1,11 +1,10 @@
-
 package recipesearch;
+
 import java.awt.event.ActionEvent;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javafx.fxml.FXML;
@@ -14,22 +13,26 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
+import javafx.scene.layout.FlowPane;
 
 
 public class RecipeSearchController implements Initializable {
 
     @FXML
-    ComboBox foodTypeSetting, mainIngredientSetting;
+    protected ComboBox foodTypeSetting, mainIngredientSetting;
     @FXML
-    RadioButton difficultyAll, difficultyEasy, difficultyMedium, difficultyHard;
+    protected RadioButton difficultyAll, difficultyEasy, difficultyMedium, difficultyHard;
     @FXML
-    Spinner maxPriceSetting;
+    protected Spinner maxPriceSetting;
     @FXML
-    Slider maxTimeSetting;
+    protected Slider maxTimeSetting;
+    @FXML
+    protected FlowPane recipeItemFlowPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        setDifficultySelection(difficultyAll);
+        updateRecipeList();
     }
 
     @FXML
@@ -39,11 +42,9 @@ public class RecipeSearchController implements Initializable {
 
     @FXML
     protected void onDiffAllAction(){
-        getRadioButtonStream().forEach(x -> {
-            x.setSelected(difficultyAll.isSelected());
-            x.setDisable(difficultyAll.isSelected());
-        });
+        if(difficultyAll.isDisable()){ return; }
 
+        setDifficultySelection(difficultyAll);
         BackendController.getInstance().setDifficulty(BackendController.recipeDifficulty.all);
     }
 
@@ -76,6 +77,17 @@ public class RecipeSearchController implements Initializable {
     }
 
     private Stream<RadioButton> getRadioButtonStream(){
-        return Arrays.stream(new RadioButton[] {difficultyEasy, difficultyMedium, difficultyHard});
+        return Arrays.stream(new RadioButton[] {difficultyEasy, difficultyMedium, difficultyHard, difficultyAll});
+    }
+
+    private void updateRecipeList(){
+        recipeItemFlowPane.getChildren().clear();
+        recipeItemFlowPane.getChildren()
+                .addAll(BackendController.getInstance()
+                        .getAnyMatchRecipe()
+                        .stream()
+                        .map(x -> new RecipeListItem(x, this))
+                        .collect(Collectors.toList()));
+        ;
     }
 }

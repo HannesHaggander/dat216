@@ -41,6 +41,7 @@ public class RecipeSearchController implements Initializable {
         setupMainIngredientComboBox();
         setupCuisineComboBox();
         setToggleGroup();
+        setupPriceSpinner();
         updateRecipeList();
     }
 
@@ -115,6 +116,22 @@ public class RecipeSearchController implements Initializable {
                     updateRecipeList();
                     System.out.println("Set cuisine to: " + newValue);
                 });
+    }
+
+    private void setupPriceSpinner(){
+         List<Integer> prices = BackendController.getInstance()
+                 .getAnyMatchRecipe()
+                 .stream()
+                 .map(recipe -> recipe.getPrice())
+                 .sorted()
+                 .collect(Collectors.toList());
+        SpinnerValueFactory<Integer> maxValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(
+                prices.get(0), prices.get(prices.size()-1), prices.get(prices.size()-1), 10);
+        maxPriceSetting.setValueFactory(maxValueFactory);
+        maxPriceSetting.valueProperty().addListener((observable, oldValue, newValue) -> {
+            BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
+            updateRecipeList();
+        });
     }
 
     private void setToggleGroup(){

@@ -15,10 +15,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Spinner;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -36,13 +33,14 @@ public class RecipeSearchController implements Initializable {
     protected FlowPane recipeItemFlowPane;
 
     private ResourceBundle bundle;
+    private ToggleGroup difficultyGroup;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.bundle = rb;
-        setDifficultySelection(difficultyAll, BackendController.recipeDifficulty.all);
         setupMainIngredientComboBox();
         setupCuisineComboBox();
+        setToggleGroup();
         updateRecipeList();
     }
 
@@ -55,28 +53,28 @@ public class RecipeSearchController implements Initializable {
     protected void onDiffAllAction(){
         if(difficultyAll.isDisable()){ return; }
 
-        setDifficultySelection(difficultyAll, BackendController.recipeDifficulty.all);
+        setDifficultySelection(BackendController.recipeDifficulty.all);
     }
 
     @FXML
     protected void onDiffEasyAction(){
         if(difficultyEasy.isDisable()){ return; }
 
-        setDifficultySelection(difficultyEasy, BackendController.recipeDifficulty.easy);
+        setDifficultySelection(BackendController.recipeDifficulty.easy);
     }
 
     @FXML
     protected void onDiffMediumAction(){
         if(difficultyMedium.isDisable()){ return; }
 
-        setDifficultySelection(difficultyMedium, BackendController.recipeDifficulty.medium);
+        setDifficultySelection(BackendController.recipeDifficulty.medium);
     }
 
     @FXML
     protected void onDiffHardAction(){
         if(difficultyHard.isDisable()){ return; }
 
-        setDifficultySelection(difficultyHard, BackendController.recipeDifficulty.hard);
+        setDifficultySelection(BackendController.recipeDifficulty.hard);
     }
 
     private void setupMainIngredientComboBox(){
@@ -119,8 +117,13 @@ public class RecipeSearchController implements Initializable {
                 });
     }
 
-    private void setDifficultySelection(RadioButton source, BackendController.recipeDifficulty difficulty){
-        getRadioButtonStream().forEach(x -> x.setSelected(x == source));
+    private void setToggleGroup(){
+        difficultyGroup = new ToggleGroup();
+        getRadioButtonStream().forEach(x -> x.setToggleGroup(difficultyGroup));
+        difficultyAll.setSelected(true);
+    }
+
+    private void setDifficultySelection(BackendController.recipeDifficulty difficulty){
         BackendController.getInstance().setDifficulty(difficulty);
         updateRecipeList();
     }

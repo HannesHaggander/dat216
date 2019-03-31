@@ -19,11 +19,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="609">
-                    <caret line="121" column="39" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="39" />
+                  <state relative-caret-position="201">
+                    <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -40,11 +40,11 @@
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="507">
-                    <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+                  <state relative-caret-position="-122">
+                    <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="e#1802#1803#0" expanded="true" />
@@ -152,8 +152,8 @@
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeListItem.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearch.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch_en.properties" />
-        <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
+        <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java" />
       </list>
     </option>
   </component>
@@ -220,7 +220,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554031018619" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554031971794" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/lab2-backend.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -327,14 +327,14 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.27206644" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.23156802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23156802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32917964" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3281412" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.3281412" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -509,16 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="121" column="39" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch_en.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -528,13 +518,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        <state relative-caret-position="-122">
+          <caret line="47" column="40" lean-forward="true" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1802#1803#0" expanded="true" />
             <element signature="e#1832#1833#0" expanded="true" />
             <element signature="method#ReadFile#0;class#BackendController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

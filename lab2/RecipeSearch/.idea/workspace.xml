@@ -101,8 +101,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="25" />
+                <state relative-caret-position="289">
+                  <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -197,8 +197,8 @@
         <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch_en.properties" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearch.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
-        <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java" />
+        <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties" />
       </list>
     </option>
   </component>
@@ -252,7 +252,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554146875606" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554146980195" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/lab2-backend.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -595,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -609,6 +602,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
         </state>
       </provider>
     </entry>

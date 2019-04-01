@@ -18,43 +18,41 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="626">
-                    <caret line="167" column="116" selection-start-line="167" selection-start-column="116" selection-end-line="167" selection-end-column="116" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-870">
-                    <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-                    <folding>
-                      <element signature="e#1802#1803#0" expanded="true" />
-                      <element signature="e#1832#1833#0" expanded="true" />
-                      <element signature="method#ReadFile#0;class#BackendController#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="85">
-                    <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
+          <splitter split-orientation="horizontal" split-proportion="0.36289063">
+            <split-first>
+              <leaf>
+                <file pinned="false" current-in-tab="true">
+                  <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state relative-caret-position="706">
+                        <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+                        <folding>
+                          <element signature="imports" expanded="true" />
+                          <element signature="method#ReadFile#0;class#BackendController#0" />
+                        </folding>
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+              </leaf>
+            </split-first>
+            <split-second>
+              <leaf>
+                <file pinned="false" current-in-tab="true">
+                  <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state relative-caret-position="519">
+                        <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
+                        <folding>
+                          <element signature="imports" expanded="true" />
+                        </folding>
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+              </leaf>
+            </split-second>
+          </splitter>
         </state>
       </content>
     </window>
@@ -69,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeListItem.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="425">
-                  <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+                <state relative-caret-position="442">
+                  <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -82,11 +80,56 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearch.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
                   <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://C:/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="327">
+                  <caret line="2578" selection-start-line="2578" selection-end-line="2578" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" column="18" selection-start-line="15" selection-end-line="15" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeComparator.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="60" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeDatabase.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="374">
+                  <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/SearchFilter.class">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -128,6 +171,8 @@
       <find>medum</find>
       <find>difficul</find>
       <find>maxTimeIndicator</find>
+      <find>setMatch</find>
+      <find>filterResultsComboBar</find>
     </findStrings>
     <replaceStrings>
       <replace>nonNull</replace>
@@ -149,10 +194,10 @@
         <option value="$PROJECT_DIR$/src/recipesearch/recipe_list_item.fxml" />
         <option value="$PROJECT_DIR$/src/Contracts/IBackendController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeListItem.java" />
-        <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch_en.properties" />
-        <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearch.java" />
+        <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties" />
+        <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java" />
       </list>
     </option>
@@ -169,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,20 +225,7 @@
             <path>
               <item name="RecipeSearch" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecipeSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RecipeSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lab2-backend.jar" type="ab9368bb:PsiFileNode" />
-            </path>
-            <path>
-              <item name="RecipeSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="lab2-backend.jar" type="ab9368bb:PsiFileNode" />
-              <item name="lab2" type="462c0819:PsiDirectoryNode" />
+              <item name="nbproject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RecipeSearch" type="b2602c69:ProjectViewProjectNode" />
@@ -211,23 +244,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="recipesearch" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RecipeSearch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecipeSearch" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="recipesearch" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554042843770" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554145984355" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/lab2-backend.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -320,11 +345,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4948148" visible="true" weight="0.15831557" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4948148" visible="true" weight="0.15991472" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -337,7 +371,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23156802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32917964" />
@@ -376,16 +410,6 @@
     <entry file="file://$PROJECT_DIR$/src/RecipeBackEndController.java" />
     <entry file="file://$PROJECT_DIR$/src/recipesearch/recipe_search.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/Recipe.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#2165#2166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RecipeSearch.iml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -455,41 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeDatabase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeComparator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/SearchFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/RecipeSearch/recipesearch/RecipeSearch.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeListItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -509,25 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-870">
-          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-          <folding>
-            <element signature="e#1802#1803#0" expanded="true" />
-            <element signature="e#1832#1833#0" expanded="true" />
-            <element signature="method#ReadFile#0;class#BackendController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -535,10 +509,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_191/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/Recipe.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="134" column="24" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="24" />
+          <folding>
+            <element signature="e#2127#2128#0" expanded="true" />
+            <element signature="e#2165#2166#0" expanded="true" />
+            <element signature="e#3659#3660#0" expanded="true" />
+            <element signature="e#3693#3694#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeComparator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="60" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/RecipeDatabase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/lab2-backend.jar!/se/chalmers/ait/dat215/lab2/SearchFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="2578" selection-start-line="2578" selection-end-line="2578" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" selection-start-line="15" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ReadFile#0;class#BackendController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="167" column="116" selection-start-line="167" selection-start-column="116" selection-end-line="167" selection-end-column="116" />
+        <state relative-caret-position="519">
+          <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

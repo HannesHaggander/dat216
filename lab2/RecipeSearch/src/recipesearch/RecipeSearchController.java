@@ -15,7 +15,7 @@ import se.chalmers.ait.dat215.lab2.Recipe;
 public class RecipeSearchController implements Initializable {
 
     @FXML
-    protected ComboBox foodTypeSetting, mainIngredientSetting;
+    protected ComboBox foodTypeSetting, mainIngredientSetting, filterResultsComboBar;
     @FXML
     protected RadioButton difficultyAll, difficultyEasy, difficultyMedium, difficultyHard;
     @FXML
@@ -32,11 +32,18 @@ public class RecipeSearchController implements Initializable {
 
     private HashMap<Recipe, RecipeListItem> listItemCache = new HashMap<>();
 
+    private recipeSorting sorting = recipeSorting.best_match;
+    private enum recipeSorting {
+        best_match,
+        only_matches
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.bundle = rb;
         setupMainIngredientComboBox();
         setupCuisineComboBox();
+        SetupResultFilterComboBox();
         setToggleGroup();
         setupPriceSpinner();
         setupTimeSlider();
@@ -90,7 +97,6 @@ public class RecipeSearchController implements Initializable {
                 .addListener((observable, oldValue, newValue) -> {
                     BackendController.getInstance().setMainIngredient(newValue.equals(defSelection) ? "" : newValue.toString());
                     updateRecipeList();
-                    System.out.println("Set main ingredient to: " + newValue);
                 });
     }
 
@@ -99,6 +105,7 @@ public class RecipeSearchController implements Initializable {
      */
     private void setupCuisineComboBox(){
         final String defSelection = bundle.getString("showAll.text");
+
         foodTypeSetting.getItems().add(defSelection);
         foodTypeSetting.getItems()
                 .addAll(BackendController.getInstance()
@@ -107,13 +114,25 @@ public class RecipeSearchController implements Initializable {
                         .map(Recipe::getCuisine)
                         .distinct()
                         .collect(Collectors.toList()));
+
         foodTypeSetting.getSelectionModel().select(0);
         foodTypeSetting.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
                     BackendController.getInstance().setCuisine(newValue.equals(defSelection) ? "" : newValue.toString());
                     updateRecipeList();
-                    System.out.println("Set cuisine to: " + newValue);
+                });
+    }
+
+    private void SetupResultFilterComboBox(){
+        sorting = recipeSorting.best_match;
+        filterResultsComboBar.getItems().addAll(Arrays.stream(recipeSorting.values()).collect(Collectors.toList()));
+        filterResultsComboBar.getSelectionModel().select(0);
+        filterResultsComboBar.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observable, oldValue, newValue) -> {
+                    sorting = recipeSorting.valueOf(newValue.toString());
+                    updateRecipeList();
                 });
     }
 
@@ -202,10 +221,18 @@ public class RecipeSearchController implements Initializable {
      */
     private void updateRecipeList(){
         recipeItemFlowPane.getChildren().clear();
+        List<Recipe> recipes = new ArrayList<>();
+        switch (sorting){
+            case only_matches:
+                recipes = BackendController.getInstance().getAnyMatchRecipe();
+                break;
+            case best_match:
+                recipes = BackendController.getInstance().getBestMatchRecipes();
+                break;
+        }
+
         recipeItemFlowPane.getChildren()
-                .addAll(BackendController.getInstance()
-                        .getAnyMatchRecipe()
-                        .stream()
+                .addAll(recipes.stream()
                         .map(this::insertListItem)
                         .collect(Collectors.toList()));
     }

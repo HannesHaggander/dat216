@@ -66,6 +66,11 @@
                                     <Insets left="5.0" />
                                  </padding>
                               </Label>
+                              <Label alignment="CENTER_RIGHT" layoutX="57.0" layoutY="276.0" text="%filterResults.text" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="150.0" layoutY="184.0" prefHeight="320.0" prefWidth="146.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
@@ -85,6 +90,7 @@
                               <Slider fx:id="maxTimeSetting" layoutY="220.0" prefHeight="14.0" prefWidth="124.0" showTickMarks="true" />
                               <Label layoutX="94.0" layoutY="184.0" prefHeight="17.0" prefWidth="52.0" text="%currency.text" wrapText="true" />
                               <Label fx:id="maxTimeLabel" layoutX="32.0" layoutY="246.0" prefHeight="17.0" prefWidth="85.0" text="%timeMinutes.text" />
+                              <ComboBox fx:id="filterResultsComboBar" layoutY="275.0" prefHeight="25.0" prefWidth="124.0" />
                            </children>
                         </AnchorPane>
                      </children>

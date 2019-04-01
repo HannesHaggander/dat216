@@ -1,4 +1,13 @@
 
+För kontrollerna: kontrollera hur säkra dessa är för olika sorters input (fördefinierade/egna värden) och navigering (tabbning/musnavigering. Kontrollera också vilken komponent som har fokus när programmet startar och när användaren kommer tillbaka från den detaljerade receptvyn. Skriv en lista med förbättringsförslag baserat på vad ni hittar.
+
+
+För pliancy/feedback: Använd programmet och anteckna vart och när programmet har bristfällig pliancy/feedback för användaren och hur detta kan förbättras
+
+----------------
+
+Generella förbättringar
+
 Lägg till en sökfunktion för maten, om man vet vad maten heter så kan man söka efter den.
 
 Tillåt flera val av inställningar, t.ex. sök efter kyckling och fisk från indiska och italienska kök.

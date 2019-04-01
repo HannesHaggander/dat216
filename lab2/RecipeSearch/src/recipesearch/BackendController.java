@@ -11,8 +11,9 @@ import java.io.FileReader;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class BackendController implements IBackendController<BackendController> {
+public class BackendController  {
     private String cuisine, mainIngredient, difficulty;
     private Integer maxPrice, maxTime;
     private static BackendController instance;
@@ -31,7 +32,6 @@ public class BackendController implements IBackendController<BackendController> 
         return instance;
     }
 
-    @Override
     public List<Recipe> getAnyMatchRecipe() {
         return recipes.stream()
             .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
@@ -39,15 +39,38 @@ public class BackendController implements IBackendController<BackendController> 
             .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
             .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
             .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
-            .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
             .collect(Collectors.toList());
     }
+
+    public List<Recipe> getBestMatchRecipes(){
+        recipes.forEach(x -> x.setMatch(0));
+
+        recipes.stream().filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
+                .forEach(x -> x.setMatch(x.getMatch()+1));
+
+        recipes.stream().filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
+                .forEach(x -> x.setMatch(x.getMatch()+1));
+
+        recipes.stream().filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
+                .forEach(x -> x.setMatch(x.getMatch()+1));
+
+        recipes.stream().filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
+                .forEach(x -> x.setMatch(x.getMatch()+1));
+
+        recipes.stream().filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
+                .forEach(x -> x.setMatch(x.getMatch()+1));
+
+        return recipes.stream()
+                .sorted((o1, o2) -> o1.getMatch() == o2.getMatch() ? 0 : o1.getMatch() - o2.getMatch() < 0 ? 1 : -1)
+                .collect(Collectors.toList());
+    }
+
+
 
     public List<Recipe> getAllRecipes(){
         return new ArrayList<>(recipes);
     }
 
-    @Override
     public BackendController clearFilter() {
         this.cuisine = null;
         this.mainIngredient = null;
@@ -63,19 +86,16 @@ public class BackendController implements IBackendController<BackendController> 
 
     private boolean nonEmptyOrNull(String s){ return nonNull(s) && !s.isEmpty(); }
 
-    @Override
     public BackendController setCuisine(String cuisine) {
         this.cuisine = cuisine;
         return this;
     }
 
-    @Override
     public BackendController setMainIngredient(String mainIngredient) {
         this.mainIngredient = mainIngredient;
         return this;
     }
 
-    @Override
     public BackendController setDifficulty(final recipeDifficulty difficulty) {
         switch (difficulty){
             case easy: this.difficulty = "Svår"; break;
@@ -86,14 +106,12 @@ public class BackendController implements IBackendController<BackendController> 
         return this;
     }
 
-    @Override
     public BackendController setMaxPrice(int maxPrice) {
         if(maxPrice < 0){ maxPrice = 0; } //max price has to be positive
         this.maxPrice = maxPrice;
         return this;
     }
 
-    @Override
     public BackendController setMaxTime(int maxTime){
         if(maxTime < 0){ maxTime = 0; }// max time has to be a positive value
         this.maxTime = maxTime;

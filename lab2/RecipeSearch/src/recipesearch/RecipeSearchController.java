@@ -31,12 +31,7 @@ public class RecipeSearchController implements Initializable {
     private ToggleGroup difficultyGroup;
 
     private HashMap<Recipe, RecipeListItem> listItemCache = new HashMap<>();
-
-    private recipeSorting sorting = recipeSorting.best_match;
-    private enum recipeSorting {
-        best_match,
-        only_matches
-    }
+    private String activeFilter;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -125,13 +120,17 @@ public class RecipeSearchController implements Initializable {
     }
 
     private void SetupResultFilterComboBox(){
-        sorting = recipeSorting.best_match;
-        filterResultsComboBar.getItems().addAll(Arrays.stream(recipeSorting.values()).collect(Collectors.toList()));
+        String[] filterOptions = new String[]{
+                bundle.getString("filterResults.bestMatch"),
+                bundle.getString("filterResults.onlyMatches")
+        };
+        activeFilter = filterOptions[0];
+        filterResultsComboBar.getItems().addAll(filterOptions);
         filterResultsComboBar.getSelectionModel().select(0);
         filterResultsComboBar.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
-                    sorting = recipeSorting.valueOf(newValue.toString());
+                    activeFilter = newValue.toString();
                     updateRecipeList();
                 });
     }
@@ -221,14 +220,13 @@ public class RecipeSearchController implements Initializable {
      */
     private void updateRecipeList(){
         recipeItemFlowPane.getChildren().clear();
-        List<Recipe> recipes = new ArrayList<>();
-        switch (sorting){
-            case only_matches:
-                recipes = BackendController.getInstance().getAnyMatchRecipe();
-                break;
-            case best_match:
-                recipes = BackendController.getInstance().getBestMatchRecipes();
-                break;
+        List<Recipe> recipes;
+
+        if(activeFilter.equals(bundle.getString("filterResults.onlyMatches"))){
+            recipes = BackendController.getInstance().getAnyMatchRecipe();
+        }
+        else {
+            recipes = BackendController.getInstance().getBestMatchRecipes();
         }
 
         recipeItemFlowPane.getChildren()

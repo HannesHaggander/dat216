@@ -1,6 +1,5 @@
 package recipesearch;
 
-import Contracts.IBackendController;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -11,7 +10,6 @@ import java.io.FileReader;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BackendController  {
     private String cuisine, mainIngredient, difficulty;
@@ -34,12 +32,12 @@ public class BackendController  {
 
     public List<Recipe> getAnyMatchRecipe() {
         return recipes.stream()
-            .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
-            .filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
-            .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
-            .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
-            .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
-            .collect(Collectors.toList());
+                .filter(x -> !nonEmptyOrNull(cuisine) || x.getCuisine().equals(cuisine))
+                .filter(x -> !nonEmptyOrNull(mainIngredient) || x.getMainIngredient().equals(mainIngredient))
+                .filter(x -> !nonEmptyOrNull(difficulty) || x.getDifficulty().equals(difficulty))
+                .filter(x -> !nonNull(maxPrice) || x.getPrice() <= maxPrice)
+                .filter(x -> !nonNull(maxTime) || x.getTime() <= maxTime)
+                .collect(Collectors.toList());
     }
 
     public List<Recipe> getBestMatchRecipes(){
@@ -98,9 +96,9 @@ public class BackendController  {
 
     public BackendController setDifficulty(final recipeDifficulty difficulty) {
         switch (difficulty){
-            case easy: this.difficulty = "Svår"; break;
+            case easy: this.difficulty = "Lätt"; break;
             case medium: this.difficulty = "Mellan"; break;
-            case hard: this.difficulty = "Lätt"; break;
+            case hard: this.difficulty = "Svår"; break;
             default: this.difficulty = "";
         }
         return this;

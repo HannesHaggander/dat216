@@ -19,8 +19,24 @@
    <children>
       <StackPane prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-            <SplitPane dividerPositions="0.35" prefHeight="160.0" prefWidth="200.0">
+            <AnchorPane fx:id="recipeDetailed" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: eeeeee;">
+               <children>
+                  <ImageView fx:id="detailedImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@../../recipes/laxpaket-med-fankal-och-spenat.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="recipeDetailedExit" fitHeight="12.0" fitWidth="12.0" onMouseClicked="#closeRecipeView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <image>
+                        <Image url="@resources/icon_close.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="detailedText" text="Label" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="20.0" />
+               </children>
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </StackPane.margin></AnchorPane>
+            <SplitPane fx:id="searchPane" dividerPositions="0.35" prefHeight="160.0" prefWidth="200.0">
               <items>
                 <AnchorPane fx:id="searchPane" maxWidth="300.0" minHeight="0.0" minWidth="300.0" prefHeight="498.0" prefWidth="300.0">
                      <children>

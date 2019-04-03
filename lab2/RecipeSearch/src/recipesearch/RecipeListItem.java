@@ -1,5 +1,6 @@
 package recipesearch;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
@@ -13,7 +14,6 @@ import java.io.IOException;
 public class RecipeListItem extends AnchorPane {
     private RecipeSearchController parentController;
     private Recipe recipe;
-
 
     @FXML
     protected Text recipeItemTitle;
@@ -36,5 +36,12 @@ public class RecipeListItem extends AnchorPane {
         this.parentController = recipeSearchController;
         this.recipeItemTitle.setText(this.recipe.getName());
         this.recipeItemImage.setImage(this.recipe.getFXImage());
+
+        setOnMouseClicked(event -> onClick(event));
+    }
+
+    @FXML
+    protected void onClick(Event event){
+        parentController.showDetailedRecipe(recipe);
     }
 }

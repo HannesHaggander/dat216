@@ -8,6 +8,9 @@ import java.util.stream.Stream;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -24,7 +27,12 @@ public class RecipeSearchController implements Initializable {
     @FXML
     protected FlowPane recipeItemFlowPane;
     @FXML
-    protected Label maxTimeLabel;
+    protected Label maxTimeLabel, detailedText;
+    @FXML
+    protected ImageView detailedImage;
+    @FXML
+    protected AnchorPane recipeDetailed;
+    //@FXML protected SplitPane searchPane;
 
     private ResourceBundle bundle;
     private ToggleGroup difficultyGroup;
@@ -235,7 +243,31 @@ public class RecipeSearchController implements Initializable {
     }
 
     private RecipeListItem insertListItem(Recipe x){
-        if(!listItemCache.containsKey(x)){ listItemCache.put(x, new RecipeListItem(x, this)); }
+
+        if(!listItemCache.containsKey(x)){
+            RecipeListItem item = new RecipeListItem(x, this);
+            listItemCache.put(x, item); }
         return listItemCache.get(x);
+    }
+
+
+    // Navigation functions
+
+    @FXML
+    protected void closeRecipeView(){
+        //searchPane.toFront();
+        recipeDetailed.toBack();
+        System.out.println("Hide detailed recipe");
+    }
+
+    protected void showDetailedRecipe(Recipe recipe){
+        populateDetailedView(recipe);
+        recipeDetailed.toFront();
+        System.out.println("Show detailed recipe");
+    }
+
+    private void populateDetailedView(Recipe recipe){
+        detailedImage.setImage(recipe.getFXImage());
+        detailedText.setText(recipe.getName());
     }
 }

@@ -99,8 +99,7 @@ public class RecipeSearchController implements Initializable {
                 .distinct()
                 .collect(Collectors.toList()));
 
-        mainIngredientSetting.setButtonCell(null);
-        mainIngredientSetting.setCellFactory(new Callback<ListView<String>, ListCell<String>>(){
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>(){
             @Override
             public ListCell<String> call(ListView<String> param) {
                 return new ListCell<String>(){
@@ -119,7 +118,10 @@ public class RecipeSearchController implements Initializable {
                     }
                 };
             }
-        });
+        };
+
+        mainIngredientSetting.setButtonCell(cellFactory.call(null));
+        mainIngredientSetting.setCellFactory(cellFactory);
 
         mainIngredientSetting.getSelectionModel().select(0);
         mainIngredientSetting.getSelectionModel()
@@ -145,8 +147,7 @@ public class RecipeSearchController implements Initializable {
                         .distinct()
                         .collect(Collectors.toList()));
 
-        foodTypeSetting.setButtonCell(null);
-        foodTypeSetting.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+        Callback<ListView<String>, ListCell<String>> cellFactory = new Callback<ListView<String>, ListCell<String>>() {
 
             @Override
             public ListCell<String> call(ListView<String> param) {
@@ -166,7 +167,10 @@ public class RecipeSearchController implements Initializable {
                     }
                 };
             }
-        });
+        };
+
+        foodTypeSetting.setButtonCell(cellFactory.call(null));
+        foodTypeSetting.setCellFactory(cellFactory);
 
         foodTypeSetting.getSelectionModel().select(0);
         foodTypeSetting.getSelectionModel()

@@ -1,0 +1,26 @@
+
+För kontrollerna: kontrollera hur säkra dessa är för olika sorters input (fördefinierade/egna värden) och navigering (tabbning/musnavigering. Kontrollera också vilken komponent som har fokus när programmet startar och när användaren kommer tillbaka från den detaljerade receptvyn. Skriv en lista med förbättringsförslag baserat på vad ni hittar.
+
+
+För pliancy/feedback: Använd programmet och anteckna vart och när programmet har bristfällig pliancy/feedback för användaren och hur detta kan förbättras
+
+----------------
+
+Generella förbättringar
+
+Lägg till en sökfunktion för maten, om man vet vad maten heter så kan man söka efter den.
+
+Tillåt flera val av inställningar, t.ex. sök efter kyckling och fisk från indiska och italienska kök.
+
+Gör funktioner för att lägga till egna maträtter.
+
+Lägg till funktioner för att skala om måtten av ingredienser för färre eller fler personer.
+
+Lägg till översättning för maträtterna och menyvalen
+
+Skapa support för tangentbordsanvändning, t.ex. snabbknappar.
+
+Möjlighet att favoritmarkera en maträtt.
+
+Ge förslag på maträtter beroende på favoritmarkeringar eller tidigare preferenssökningar
+

@@ -1,0 +1,31 @@
+.text-normal{
+    -fx-font-size: 13px;
+    -fx-font-family: "Roboto";
+}
+
+.text-small{
+    -fx-font-size: 10px;
+    -fx-font-family: "Roboto";
+}
+
+.text-big{
+    -fx-font-size: 17px;
+    -fx-font-family: "Roboto";
+}
+
+.text-huge{
+    -fx-font-size: 22px;
+    -fx-font-family: "Roboto";
+}
+
+.logo{
+    -fx-font-size: 35px;
+    -fx-font-family: "Righteous";
+}
+
+.logo-twirl{
+    -fx-font-size: 35px;
+    -fx-font-family: "Permanent Marker";
+    -fx-text-fill: #FFAC33;
+    -fx-rotate: -20;
+}

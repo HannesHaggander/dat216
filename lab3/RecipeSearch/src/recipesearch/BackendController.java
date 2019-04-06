@@ -133,14 +133,13 @@ public class BackendController  {
 
 
     public Image getIconImage(String cuisineName){
-        System.out.println("get icon for: " + cuisineName);
         if(!nonEmptyOrNull(cuisineName)){ throw new RuntimeException("Invalid argument"); }
         String iconPath;
 
         try {
             switch (recipeCuisine.valueOf(cuisineName)){
                 case Kött:
-                    iconPath = "recipesearch/resources/icon_main_meat.png";
+                    iconPath = "recipeSearch/resources/icon_main_meat.png";
                     break;
 
                 case Fisk:

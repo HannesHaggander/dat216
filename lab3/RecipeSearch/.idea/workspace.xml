@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="108" column="68" lean-forward="true" selection-start-line="108" selection-start-column="68" selection-end-line="108" selection-end-column="68" />
+            <state relative-caret-position="235">
+              <caret line="86" column="47" lean-forward="true" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3084#3778#0" expanded="true" />
@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="324">
+              <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
               <folding>
                 <element signature="method#ReadFile#0;class#BackendController#0" />
               </folding>
@@ -153,9 +153,9 @@
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeListItemController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeListItem.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/resources/RecipeSearch.properties" />
-        <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
         <option value="$PROJECT_DIR$/src/recipesearch/recipe_search.css" />
         <option value="$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java" />
+        <option value="$PROJECT_DIR$/src/recipesearch/BackendController.java" />
       </list>
     </option>
   </component>
@@ -228,7 +228,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554555292169" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554555966004" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -332,9 +332,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1273" y="0" width="1294" height="1087" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4948148" visible="true" weight="0.2382496" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4948148" visible="true" weight="0.2382496" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -343,7 +342,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27148846" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27148846" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3259958" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -534,24 +533,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="method#ReadFile#0;class#BackendController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/recipesearch/RecipeSearchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="108" column="68" lean-forward="true" selection-start-line="108" selection-start-column="68" selection-end-line="108" selection-end-column="68" />
+        <state relative-caret-position="235">
+          <caret line="86" column="47" lean-forward="true" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3084#3778#0" expanded="true" />
             <element signature="e#3777#3778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/recipesearch/BackendController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
+          <folding>
+            <element signature="method#ReadFile#0;class#BackendController#0" />
           </folding>
         </state>
       </provider>

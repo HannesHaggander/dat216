@@ -5,15 +5,19 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.FlowPane;
 import javafx.util.Callback;
 import se.chalmers.ait.dat215.lab2.Recipe;
+
+import javax.swing.text.IconView;
 
 public class RecipeSearchController implements Initializable {
 
@@ -51,6 +55,7 @@ public class RecipeSearchController implements Initializable {
         setupPriceSpinner();
         setupTimeSlider();
         updateRecipeList();
+        Platform.runLater(() -> mainIngredientSetting.requestFocus());
     }
 
     @FXML
@@ -106,7 +111,7 @@ public class RecipeSearchController implements Initializable {
 
                         if(item == null || empty){ setGraphic(null); }
                         else {
-                            ImageView iconImageView = new ImageView(BackendController.getInstance().getIconImage(item));
+                            ImageView iconImageView = new ImageView(BackendController.getInstance().getCuisineIconImage(item));
                             iconImageView.setFitHeight(12);
                             iconImageView.setPreserveRatio(true);
                             setGraphic(iconImageView);
@@ -139,6 +144,29 @@ public class RecipeSearchController implements Initializable {
                         .map(Recipe::getCuisine)
                         .distinct()
                         .collect(Collectors.toList()));
+
+        foodTypeSetting.setButtonCell(null);
+        foodTypeSetting.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                return new ListCell<String>(){
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+
+                        if(empty){ setGraphic(null); }
+                        else {
+                            ImageView iconView = new ImageView(BackendController.getInstance().getFoodTypeIcon(item));
+                            iconView.setFitHeight(12);
+                            iconView.setPreserveRatio(true);
+                            setGraphic(iconView);
+                        }
+                    }
+                };
+            }
+        });
 
         foodTypeSetting.getSelectionModel().select(0);
         foodTypeSetting.getSelectionModel()

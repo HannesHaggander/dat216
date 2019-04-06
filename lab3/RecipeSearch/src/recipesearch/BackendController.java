@@ -31,6 +31,14 @@ public class BackendController  {
         Vegetarisk
     }
 
+    public enum recipeFoodType {
+        Frankrike,
+        Afrika,
+        Asien,
+        Indien,
+        Sverige,
+        Italien
+    }
 
     public BackendController(){ ReadFile(); }
 
@@ -132,7 +140,7 @@ public class BackendController  {
     }
 
 
-    public Image getIconImage(String cuisineName){
+    public Image getCuisineIconImage(String cuisineName){
         if(!nonEmptyOrNull(cuisineName)){ throw new RuntimeException("Invalid argument"); }
         String iconPath;
 
@@ -156,6 +164,48 @@ public class BackendController  {
 
                 default:
                     throw new RuntimeException("Failed to parse cuisine name");
+            }
+        }
+        catch (Exception ex){
+            return null;
+        }
+
+        return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(iconPath)));
+    }
+
+    public Image getFoodTypeIcon(String foodTypeName){
+        if(!nonEmptyOrNull(foodTypeName)){ throw new RuntimeException("Invalid argument"); }
+        String iconPath;
+
+        try {
+            switch(recipeFoodType.valueOf(foodTypeName)){
+
+                case Frankrike:
+                    iconPath = "recipesearch/resources/icon_flag_france.png";
+                    break;
+
+                case Afrika:
+                    iconPath = "recipesearch/resources/icon_flag_africa.png";
+                    break;
+
+                case Asien:
+                    iconPath = "recipesearch/resources/icon_flag_asia.png";
+                    break;
+
+                case Indien:
+                    iconPath = "recipesearch/resources/icon_flag_india.png";
+                    break;
+
+                case Sverige:
+                    iconPath = "recipesearch/resources/icon_flag_sweden.png";
+                    break;
+
+                case Italien:
+                    iconPath = "recipesearch/resources/icon_flag_italy.png";
+                    break;
+
+                default:
+                    return null;
             }
         }
         catch (Exception ex){

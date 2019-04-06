@@ -1,5 +1,6 @@
 package recipesearch;
 
+import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.lab2.Ingredient;
 import se.chalmers.ait.dat215.lab2.Recipe;
 
@@ -22,6 +23,14 @@ public class BackendController  {
         hard,
         all
     }
+
+    public enum recipeCuisine {
+        Kött,
+        Fisk,
+        Kyckling,
+        Vegetarisk
+    }
+
 
     public BackendController(){ ReadFile(); }
 
@@ -114,6 +123,47 @@ public class BackendController  {
         if(maxTime < 0){ maxTime = 0; }// max time has to be a positive value
         this.maxTime = maxTime;
         return this;
+    }
+
+    private String getIconPath(recipeCuisine cuisine){
+
+
+        throw new RuntimeException("Failed to parse cuisine for icon, forgot to add cuisine to switch?");
+    }
+
+
+    public Image getIconImage(String cuisineName){
+        System.out.println("get icon for: " + cuisineName);
+        if(!nonEmptyOrNull(cuisineName)){ throw new RuntimeException("Invalid argument"); }
+        String iconPath;
+
+        try {
+            switch (recipeCuisine.valueOf(cuisineName)){
+                case Kött:
+                    iconPath = "recipesearch/resources/icon_main_meat.png";
+                    break;
+
+                case Fisk:
+                    iconPath = "recipeSearch/resources/icon_main_fish.png";
+                    break;
+
+                case Kyckling:
+                    iconPath = "recipeSearch/resources/icon_main_chicken.png";
+                    break;
+
+                case Vegetarisk:
+                    iconPath = "recipeSearch/resources/icon_main_veg.png";
+                    break;
+
+                default:
+                    throw new RuntimeException("Failed to parse cuisine name");
+            }
+        }
+        catch (Exception ex){
+            return null;
+        }
+
+        return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(iconPath)));
     }
 
     private Set<Recipe> recipes;

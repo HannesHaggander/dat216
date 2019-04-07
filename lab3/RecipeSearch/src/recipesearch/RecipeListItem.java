@@ -4,6 +4,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -16,10 +17,10 @@ public class RecipeListItem extends AnchorPane {
     private Recipe recipe;
 
     @FXML
-    protected Text recipeItemTitle;
+    protected Label recipeItemTitle, cookingTimeLabel, mealPriceLabel, mealDescription;
 
     @FXML
-    protected ImageView recipeItemImage;
+    protected ImageView recipeItemImage, foodTypeIcon, difficultyIcon, mealCountryOrigin;
 
     public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_list_item.fxml"));
@@ -36,6 +37,12 @@ public class RecipeListItem extends AnchorPane {
         this.parentController = recipeSearchController;
         this.recipeItemTitle.setText(this.recipe.getName());
         this.recipeItemImage.setImage(this.recipe.getFXImage());
+        this.cookingTimeLabel.setText(String.format("%d %s", this.recipe.getTime(), parentController.getBundle().getString("timeMinutes.text")));
+        this.mealPriceLabel.setText(String.format("%d %s", this.recipe.getPrice(), parentController.getBundle().getString("currency.text")));
+        this.mealDescription.setText(this.recipe.getDescription());
+        this.foodTypeIcon.setImage(BackendController.getInstance().getCuisineIconImage(this.recipe.getMainIngredient()));
+        this.difficultyIcon.setImage(BackendController.getInstance().getDifficultyImage(this.recipe.getDifficulty()));
+        this.mealCountryOrigin.setImage(BackendController.getInstance().getFoodTypeIcon(this.recipe.getCuisine()));
 
         setOnMouseClicked(event -> onClick(event));
     }

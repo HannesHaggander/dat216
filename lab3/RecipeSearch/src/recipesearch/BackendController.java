@@ -215,6 +215,28 @@ public class BackendController  {
         return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(iconPath)));
     }
 
+    public Image getDifficultyImage(String difficulty){
+        String iconPath;
+
+        switch (difficulty){
+            case "Lätt":
+                iconPath = "recipesearch/resources/icon_difficulty_easy.png";
+                break;
+
+            case "Mellan":
+                iconPath = "recipesearch/resources/icon_difficulty_medium.png";
+                break;
+
+            case "Svår":
+                iconPath = "recipesearch/resources/icon_difficulty_hard.png";
+                break;
+
+            default: return null;
+        }
+
+        return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(iconPath)));
+    }
+
     private Set<Recipe> recipes;
     private void ReadFile(){
         File file = new File("recipes/recipes.txt");

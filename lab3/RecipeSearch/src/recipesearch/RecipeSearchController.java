@@ -37,7 +37,6 @@ public class RecipeSearchController implements Initializable {
     protected ImageView detailedImage;
     @FXML
     protected AnchorPane recipeDetailed;
-    //@FXML protected SplitPane searchPane;
 
     private ResourceBundle bundle;
     private ToggleGroup difficultyGroup;
@@ -324,5 +323,9 @@ public class RecipeSearchController implements Initializable {
     private void populateDetailedView(Recipe recipe){
         detailedImage.setImage(recipe.getFXImage());
         detailedText.setText(recipe.getName());
+    }
+
+    public ResourceBundle getBundle(){
+        return bundle;
     }
 }

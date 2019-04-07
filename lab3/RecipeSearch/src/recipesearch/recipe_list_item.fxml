@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
 
-<fx:root prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="100.0" prefWidth="495.0" stylesheets="@recipe_search.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="recipeItemImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@resources/logo.png" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="100.0" layoutY="7.0" prefHeight="100.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane prefHeight="82.0" prefWidth="102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fx:id="recipeItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textOrigin="TOP" />
+            <ImageView fx:id="recipeItemImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mealCountryOrigin" fitHeight="20.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
+               <image>
+                  <Image url="@resources/icon_flag_sweden.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="5.0" right="5.0" />
+               </StackPane.margin>
+            </ImageView>
+         </children>
+      </StackPane>
+      <AnchorPane layoutX="100.0" layoutY="7.0" prefHeight="100.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="recipeItemTitle" styleClass="text-huge" text="Label" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            <ImageView fx:id="foodTypeIcon" fitHeight="20.0" fitWidth="20.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/icon_main_meat.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="difficultyIcon" fitHeight="20.0" fitWidth="60.0" layoutX="35.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/icon_difficulty_easy.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="cookingTimeLabel" layoutX="120.0" layoutY="35.0" styleClass="text-small" text="XX Minutes" />
+            <Label fx:id="mealPriceLabel" alignment="CENTER_RIGHT" layoutX="214.0" layoutY="35.0" styleClass="text-small" text="XX Price" />
+            <Label fx:id="mealDescription" alignment="TOP_LEFT" layoutX="-5.0" layoutY="50.0" prefHeight="42.0" prefWidth="388.0" styleClass="text-small" text="Menu Description" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>

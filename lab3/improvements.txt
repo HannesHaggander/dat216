@@ -1,26 +1,26 @@
+Förbättringar lab 3
+Hannes Häggander & My Sundqvist
 
-För kontrollerna: kontrollera hur säkra dessa är för olika sorters input (fördefinierade/egna värden) och navigering (tabbning/musnavigering. Kontrollera också vilken komponent som har fokus när programmet startar och när användaren kommer tillbaka från den detaljerade receptvyn. Skriv en lista med förbättringsförslag baserat på vad ni hittar.
+----
 
+funktioner:
+	Lägg till sökfiltrering av ingredienser i recepten. 
 
-För pliancy/feedback: Använd programmet och anteckna vart och när programmet har bristfällig pliancy/feedback för användaren och hur detta kan förbättras
+	möjlighet att lägga till egna maträtter i listan
 
-----------------
+	möjlighet att variera hur många serveringar man vill göra, dvs om receptet är för 4 så ska man ha möjlighet att göra om det för 2 och alla ingredienser i receptet halveras.
 
-Generella förbättringar
+	implementera funktioner för användare att ändra interface-språk i programmet utan att byta språk på datorn
 
-Lägg till en sökfunktion för maten, om man vet vad maten heter så kan man söka efter den.
+	göra om backenden till en databas istället för att läsa av data från en fil.
 
-Tillåt flera val av inställningar, t.ex. sök efter kyckling och fisk från indiska och italienska kök.
+	hämta nya recept från internet
 
-Gör funktioner för att lägga till egna maträtter.
+	lägg till möjlighet att lägga till taggar till maträtter, t.ex. så kan spaghetti och köttfärssås taggas som lätt familjemat osv för de som vill hitta flera liknande maträtter även om de inte delar huvudingrediens eller liknande. 
 
-Lägg till funktioner för att skala om måtten av ingredienser för färre eller fler personer.
+feedback/pliancy 
+	animera olika event i programmet som t.ex. öppningen av detail fönstret, gör så att användarupplevelsen känns mer modern, kvalitativ och underhållande.
 
-Lägg till översättning för maträtterna och menyvalen
+	funktion för att rösta på hur bra receptet var alternativt lägga till det i favoriter så att man hittar receptet lättare nästa gång. 
 
-Skapa support för tangentbordsanvändning, t.ex. snabbknappar.
-
-Möjlighet att favoritmarkera en maträtt.
-
-Ge förslag på maträtter beroende på favoritmarkeringar eller tidigare preferenssökningar
-
+	videoinstruktioner på hur man gör filmerna gör de nog mer attraktiva att följa.

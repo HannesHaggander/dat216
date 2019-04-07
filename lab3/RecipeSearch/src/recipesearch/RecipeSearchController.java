@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -32,15 +33,16 @@ public class RecipeSearchController implements Initializable {
     @FXML
     protected FlowPane recipeItemFlowPane;
     @FXML
-    protected Label maxTimeLabel;
+    protected Label maxTimeLabel, headerText;
     @FXML
     protected AnchorPane recipeDetailed;
 
+
     //detail view
     @FXML
-    protected ImageView detailedImage, detailMainIngredient, detailDifficulty;
+    protected ImageView detailedImage, detailMainIngredient, detailDifficulty, recipeDetailedExit;
     @FXML
-    protected  Label detailedText, detailTime, detailPrice, detailDescription, detailInstructions, detailPortions, detailIngredients;
+    protected Label detailedText, detailTime, detailPrice, detailDescription, detailInstructions, detailPortions, detailIngredients;
 
 
     private ResourceBundle bundle;
@@ -88,6 +90,11 @@ public class RecipeSearchController implements Initializable {
         if(difficultyHard.isDisable()){ return; }
 
         setDifficultySelection(BackendController.recipeDifficulty.hard);
+    }
+
+    @FXML
+    protected void tmp(){
+        headerText.setText(bundle.getString("tmp.text"));
     }
 
     /***
@@ -219,15 +226,27 @@ public class RecipeSearchController implements Initializable {
 
         // update backend controller on change
         maxPriceSetting.valueProperty().addListener((observable, oldValue, newValue) -> {
-            BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
+            try{
+                BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
+            }
+            catch (Exception ex){
+                //ignore throw
+                System.err.println(ex.toString());
+            }
             updateRecipeList();
         });
 
         //update backend controller on lost focus
         maxPriceSetting.focusedProperty().addListener((observable, oldValue, newValue) -> {
             if(!newValue) {
-                BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
-                updateRecipeList();
+                try{
+                    BackendController.getInstance().setMaxPrice(Integer.valueOf(maxPriceSetting.getEditor().getText()));
+                    updateRecipeList();
+                }
+                catch (Exception ex){
+                    //ignore throw
+                    System.err.println(ex.toString());
+                }
             }
         });
     }
@@ -317,12 +336,37 @@ public class RecipeSearchController implements Initializable {
         recipeDetailed.toBack();
     }
 
+    @FXML
+    protected void hoverEnterDetailedExit(){
+        recipeDetailedExit.setImage(loadImage("recipesearch/resources/icon_close_hover.png"));
+    }
+
+    @FXML
+    protected void pressEnterDetailedExit(){
+        recipeDetailedExit.setImage(loadImage("recipesearch/resources/icon_close_pressed.png"));
+    }
+
+    @FXML
+    protected void hoverExitDetailedExit(){
+        recipeDetailedExit.setImage(loadImage("recipesearch/resources/icon_close.png"));
+    }
+
+    @FXML
+    protected void mouseTrap(Event event){
+        event.consume();
+    }
+
+    private Image loadImage(String path){
+        return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(path)));
+    }
+
     protected void showDetailedRecipe(Recipe recipe){
         populateDetailedView(recipe);
         recipeDetailed.toFront();
     }
 
     private void populateDetailedView(Recipe recipe){
+        recipeDetailedExit.setImage(loadImage("recipesearch/resources/icon_close.png"));
         detailedImage.setImage(recipe.getFXImage());
         detailedText.setText(recipe.getName());
         detailMainIngredient.setImage(BackendController.getInstance().getCuisineIconImage(recipe.getMainIngredient()));

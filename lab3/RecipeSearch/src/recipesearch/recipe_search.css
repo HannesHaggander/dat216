@@ -66,3 +66,7 @@
     -fx-font-size: 13px;
     -fx-font-family: "Roboto";
 }
+
+.transparent{
+    -fx-opacity: 0;
+}

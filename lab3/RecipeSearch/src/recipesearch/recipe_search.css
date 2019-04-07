@@ -49,3 +49,20 @@
     -fx-border-radius: 1px;
     -fx-background-color: #D0D0D0;
 }
+
+.detail-layout{
+    -fx-border-width: 2px;
+    -fx-border-color: #D0D0D0;
+    -fx-border-radius: 1px;
+    -fx-background-color: #FCFCFC;
+}
+
+.detail-fade{
+    -fx-background-color: rgba(55, 55, 55, 0.5);
+}
+
+.text-normal-bold{
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-font-family: "Roboto";
+}

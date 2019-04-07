@@ -32,11 +32,16 @@ public class RecipeSearchController implements Initializable {
     @FXML
     protected FlowPane recipeItemFlowPane;
     @FXML
-    protected Label maxTimeLabel, detailedText;
-    @FXML
-    protected ImageView detailedImage;
+    protected Label maxTimeLabel;
     @FXML
     protected AnchorPane recipeDetailed;
+
+    //detail view
+    @FXML
+    protected ImageView detailedImage, detailMainIngredient, detailDifficulty;
+    @FXML
+    protected  Label detailedText, detailTime, detailPrice, detailDescription, detailInstructions, detailPortions, detailIngredients;
+
 
     private ResourceBundle bundle;
     private ToggleGroup difficultyGroup;
@@ -309,20 +314,25 @@ public class RecipeSearchController implements Initializable {
 
     @FXML
     protected void closeRecipeView(){
-        //searchPane.toFront();
         recipeDetailed.toBack();
-        System.out.println("Hide detailed recipe");
     }
 
     protected void showDetailedRecipe(Recipe recipe){
         populateDetailedView(recipe);
         recipeDetailed.toFront();
-        System.out.println("Show detailed recipe");
     }
 
     private void populateDetailedView(Recipe recipe){
         detailedImage.setImage(recipe.getFXImage());
         detailedText.setText(recipe.getName());
+        detailMainIngredient.setImage(BackendController.getInstance().getCuisineIconImage(recipe.getMainIngredient()));
+        detailDifficulty.setImage(BackendController.getInstance().getDifficultyImage(recipe.getDifficulty()));
+        detailTime.setText(String.format("%d %s",recipe.getTime(), bundle.getString("timeMinutes.text")));
+        detailPrice.setText(String.format("%d %s",recipe.getPrice(), bundle.getString("currency.text")));
+        detailDescription.setText(recipe.getDescription());
+        detailInstructions.setText(recipe.getInstruction());
+        detailPortions.setText(String.format("%d %s", recipe.getServings(), bundle.getString("servings.text")));
+        detailIngredients.setText(String.join("\n", recipe.getIngredients().stream().map(ingredient -> ingredient.toString()).collect(Collectors.toList())));
     }
 
     public ResourceBundle getBundle(){

@@ -19,22 +19,52 @@
    <children>
       <StackPane prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="recipeDetailed" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: eeeeee;">
+            <AnchorPane fx:id="recipeDetailed" prefHeight="200.0" prefWidth="200.0" styleClass="detail-fade">
                <children>
-                  <ImageView fx:id="detailedImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                     <image>
-                        <Image url="@../../recipes/laxpaket-med-fankal-och-spenat.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="recipeDetailedExit" fitHeight="12.0" fitWidth="12.0" onMouseClicked="#closeRecipeView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                     <image>
-                        <Image url="@resources/icon_close.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="detailedText" text="Label" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="20.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="detail-layout" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                     <children>
+                        <ImageView fx:id="detailedImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <image>
+                              <Image url="@../../recipes/laxpaket-med-fankal-och-spenat.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="detailedText" styleClass="text-huge" text="Titel" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="20.0" />
+                        <ImageView fx:id="recipeDetailedExit" fitHeight="12.0" fitWidth="12.0" onMouseClicked="#closeRecipeView" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <image>
+                              <Image url="@resources/icon_close.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="detailMainIngredient" fitHeight="30.0" fitWidth="30.0" layoutX="222.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_main_meat.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="detailDifficulty" fitHeight="25.0" fitWidth="146.0" layoutX="270.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_difficulty_easy.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="detailTime" layoutX="370.0" layoutY="69.0" styleClass="text-small" text="XX Minutes">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/icon_time.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Label fx:id="detailPrice" layoutX="498.0" layoutY="74.0" styleClass="text-small" text="XX kr" />
+                        <Label fx:id="detailDescription" alignment="TOP_LEFT" layoutX="223.0" layoutY="113.0" prefHeight="58.0" prefWidth="492.0" styleClass="text-small" text="Description" wrapText="true" />
+                        <Label layoutX="223.0" layoutY="178.0" styleClass="text-normal-bold" text="%instructions.text" />
+                        <Label fx:id="detailInstructions" alignment="TOP_LEFT" layoutX="223.0" layoutY="203.0" prefHeight="228.0" prefWidth="509.0" styleClass="text-normal" text="Lorem ipsum" wrapText="true" />
+                        <Label layoutX="14.0" layoutY="171.0" prefHeight="28.0" prefWidth="200.0" styleClass="text-normal-bold" text="%ingredients.text" />
+                        <Label fx:id="detailPortions" layoutX="14.0" layoutY="199.0" prefHeight="28.0" prefWidth="200.0" styleClass="text-normal" text="X Portioner" />
+                        <Label fx:id="detailIngredients" alignment="TOP_LEFT" layoutX="34.0" layoutY="227.0" prefHeight="202.0" prefWidth="180.0" styleClass="text-normal" text="XX st YY" wrapText="true" />
+                     </children>
+                  </AnchorPane>
                </children>
                <StackPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets />
                </StackPane.margin></AnchorPane>
             <SplitPane fx:id="searchPane" dividerPositions="0.35" prefHeight="160.0" prefWidth="200.0">
               <items>

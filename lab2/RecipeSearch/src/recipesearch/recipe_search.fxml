@@ -60,7 +60,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="189.0" prefHeight="315.0" prefWidth="143.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="180.0">
+                        <AnchorPane layoutY="189.0" prefHeight="318.0" prefWidth="117.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="180.0">
                            <children>
                               <Label alignment="CENTER_RIGHT" styleClass="text-normal" text="%mainIngredient.text" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <padding>
@@ -101,12 +101,33 @@
                                     <Image url="@resources/icon_time.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton fx:id="difficultyAll" layoutY="75.0" mnemonicParsing="false" onAction="#onDiffAllAction" styleClass="text-small" text="%difficultyAll.text" />
                               <ComboBox fx:id="mainIngredientSetting" prefHeight="25.0" prefWidth="124.0" styleClass="text-small" />
-                              <ComboBox fx:id="foodTypeSetting" layoutY="35.0" prefHeight="25.0" prefWidth="124.0" styleClass="text-small" />
-                              <RadioButton fx:id="difficultyEasy" layoutY="100.0" mnemonicParsing="false" onAction="#onDiffEasyAction" styleClass="text-small" text="%difficultyEasy.text" />
-                              <RadioButton fx:id="difficultyMedium" layoutY="125.0" mnemonicParsing="false" onAction="#onDiffMediumAction" styleClass="text-small" text="%difficultyMedium.text" />
-                              <RadioButton fx:id="difficultyHard" layoutY="150.0" mnemonicParsing="false" onAction="#onDiffHardAction" styleClass="text-small" text="%difficultyHard.text" />
+                              <ComboBox fx:id="foodTypeSetting" layoutY="35.0" prefHeight="25.0" prefWidth="143.0" styleClass="text-small" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <RadioButton fx:id="difficultyAll" graphicTextGap="0.0" layoutY="75.0" mnemonicParsing="false" onAction="#onDiffAllAction" styleClass="text-small" text="%difficultyAll.text" />
+                              <RadioButton fx:id="difficultyEasy" layoutY="100.0" mnemonicParsing="false" onAction="#onDiffEasyAction" styleClass="text-small" text="%difficultyEasy.text">
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/icon_difficulty_easy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></RadioButton>
+                              <RadioButton fx:id="difficultyMedium" layoutY="125.0" mnemonicParsing="false" onAction="#onDiffMediumAction" styleClass="text-small" text="%difficultyMedium.text">
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/icon_difficulty_medium.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></RadioButton>
+                              <RadioButton fx:id="difficultyHard" layoutY="150.0" mnemonicParsing="false" onAction="#onDiffHardAction" styleClass="text-small" text="%difficultyHard.text">
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@resources/icon_difficulty_hard.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></RadioButton>
                               <Spinner fx:id="maxPriceSetting" editable="true" layoutY="180.0" prefHeight="25.0" prefWidth="85.0" styleClass="text-small" />
                               <Slider fx:id="maxTimeSetting" layoutY="220.0" prefHeight="14.0" prefWidth="124.0" showTickMarks="true" />
                               <Label layoutX="94.0" layoutY="184.0" prefHeight="17.0" prefWidth="52.0" styleClass="text-normal" text="%currency.text" wrapText="true" />

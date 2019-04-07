@@ -29,3 +29,23 @@
     -fx-text-fill: #FFAC33;
     -fx-rotate: -20;
 }
+
+.item-background{
+    -fx-border-width: 2px;
+    -fx-border-color: #bdbdbd;
+    -fx-border-radius: 1px;
+    -fx-background-color: #FCFCFC;
+}
+
+.item-background:hover{
+    -fx-border-width: 2px;
+    -fx-border-color: #616161;
+    -fx-border-radius: 1px;
+}
+
+.item-background:pressed{
+    -fx-border-width: 2px;
+    -fx-border-color: #D0D0D0;
+    -fx-border-radius: 1px;
+    -fx-background-color: #D0D0D0;
+}
